@@ -3,11 +3,11 @@
 用于在 HyperEVM（`hyperevm_mainnet`）上回填合约日志与代币转账事件的 TypeScript 开源示例，支持 BlockVectra JSON-RPC 与 Data API 两种数据通路。
 
 遵循官方规格文档与接口定义：
-- [BlockVectra JSON-RPC 规范](https://docs.blockvectra.com/openapi/json-rpc.yaml)
-- [BlockVectra Data API 规范](https://docs.blockvectra.com/openapi/data.yaml)
-- [HyperEVM 回填指南](https://docs.blockvectra.com/zh/guides/hyperevm-backfill/)
-- [eth_getLogs 区块跨度限制指南](https://docs.blockvectra.com/zh/guides/getlogs-block-range/)
-- [计费规则与错误码说明](https://docs.blockvectra.com/zh/guides/billing-rules/)
+- [BlockVectra JSON-RPC 规范](https://docs.blockvectra.com/openapi/json-rpc.yaml?ref=gh-hyperevm-backfill)
+- [BlockVectra Data API 规范](https://docs.blockvectra.com/openapi/data.yaml?ref=gh-hyperevm-backfill)
+- [HyperEVM 回填指南](https://docs.blockvectra.com/zh/guides/hyperevm-backfill/?ref=gh-hyperevm-backfill)
+- [eth_getLogs 区块跨度限制指南](https://docs.blockvectra.com/zh/guides/getlogs-block-range/?ref=gh-hyperevm-backfill)
+- [计费规则与错误码说明](https://docs.blockvectra.com/zh/guides/billing-rules/?ref=gh-hyperevm-backfill)
 
 ---
 
@@ -63,7 +63,7 @@
 
 所有方法调用按其对应的实际方法权重消耗算力单元（CU）。未执行成功的请求（如缺少 API Key 的 401 报错、超额限流 429 或参数校验未通过的请求）不计入 CU 消耗。
 
-当前价格换算、充值额度与结算说明请以 [BlockVectra 定价页面](https://blockvectra.com/zh/pricing/) 为准。
+当前价格换算、充值额度与结算说明请以 [BlockVectra 定价页面](https://blockvectra.com/zh/pricing/?ref=gh-hyperevm-backfill) 为准。
 
 ---
 
@@ -71,8 +71,8 @@
 
 同一个 API Key 适用于所有受支持链、JSON-RPC 以及 Data API 端点：
 
-1. **控制台申请**：登录并在控制台创建 API Key：[https://blockvectra.com/zh/get-api-key/](https://blockvectra.com/zh/get-api-key/)。
-2. **程序化开户**：通过以太坊钱包签名（EIP-191 / SIWE）无前端开户并创建 Key，详见[程序化开户指南](https://docs.blockvectra.com/zh/guides/programmatic-signup/)。
+1. **控制台申请**：登录并在控制台创建 API Key：[https://blockvectra.com/zh/get-api-key/](https://blockvectra.com/zh/get-api-key/?ref=gh-hyperevm-backfill)。
+2. **程序化开户**：通过以太坊钱包签名（EIP-191 / SIWE）无前端开户并创建 Key，详见[程序化开户指南](https://docs.blockvectra.com/zh/guides/programmatic-signup/?ref=gh-hyperevm-backfill)。
 
 ---
 
