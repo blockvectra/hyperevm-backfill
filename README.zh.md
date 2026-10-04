@@ -139,8 +139,8 @@ Dynamic max_logs_block_range: 1000 blocks
 Processing chunk [0 .. 999] (1000 blocks)...
 
 [401 missing_api_key] Verified: Endpoint requires an API key for authenticated operations.
-To obtain an API key, visit the web console: https://blockvectra.com/zh/get-api-key/
-Or follow the programmatic signup guide: https://docs.blockvectra.com/zh/guides/programmatic-signup/
+To obtain an API key, visit the web console: https://blockvectra.com/zh/get-api-key/?ref=gh-hyperevm-backfill
+Or follow the programmatic signup guide: https://docs.blockvectra.com/zh/guides/programmatic-signup/?ref=gh-hyperevm-backfill
 ```
 
 #### Data API 模式输出
@@ -160,8 +160,8 @@ Dynamic max_logs_block_range: 1000 blocks
 Processing chunk [0 .. 999] (1000 blocks)...
 
 [401 missing_api_key] Verified: Endpoint requires an API key for authenticated operations.
-To obtain an API key, visit the web console: https://blockvectra.com/zh/get-api-key/
-Or follow the programmatic signup guide: https://docs.blockvectra.com/zh/guides/programmatic-signup/
+To obtain an API key, visit the web console: https://blockvectra.com/zh/get-api-key/?ref=gh-hyperevm-backfill
+Or follow the programmatic signup guide: https://docs.blockvectra.com/zh/guides/programmatic-signup/?ref=gh-hyperevm-backfill
 ```
 
 #### 断点续跑验证输出
@@ -179,8 +179,8 @@ Resuming from checkpoint file: lastBlock = 500
 Processing chunk [501 .. 1500] (1000 blocks)...
 
 [401 missing_api_key] Verified: Endpoint requires an API key for authenticated operations.
-To obtain an API key, visit the web console: https://blockvectra.com/zh/get-api-key/
-Or follow the programmatic signup guide: https://docs.blockvectra.com/zh/guides/programmatic-signup/
+To obtain an API key, visit the web console: https://blockvectra.com/zh/get-api-key/?ref=gh-hyperevm-backfill
+Or follow the programmatic signup guide: https://docs.blockvectra.com/zh/guides/programmatic-signup/?ref=gh-hyperevm-backfill
 ```
 
 ---

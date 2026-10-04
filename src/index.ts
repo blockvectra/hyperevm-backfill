@@ -181,8 +181,8 @@ function handleFailure(res: { status: number; data: any }) {
   const err = res.data?.error;
   if (res.status === 401 || err?.data?.reason === "missing_api_key") {
     console.log("\n[401 missing_api_key] Verified: Endpoint requires an API key for authenticated operations.");
-    console.log("To obtain an API key, visit the web console: https://blockvectra.com/en/get-api-key/");
-    console.log("Or follow the programmatic signup guide: https://docs.blockvectra.com/en/guides/programmatic-signup/");
+    console.log("To obtain an API key, visit the web console: https://blockvectra.com/en/get-api-key/?ref=gh-hyperevm-backfill");
+    console.log("Or follow the programmatic signup guide: https://docs.blockvectra.com/en/guides/programmatic-signup/?ref=gh-hyperevm-backfill");
   } else {
     console.error(`\nRequest failed with HTTP ${res.status}:`, err || res.data);
   }
