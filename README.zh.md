@@ -14,7 +14,7 @@
 ## 功能特性
 
 1. **运行时动态获取区块跨度**：在运行期调用公开端点 `GET https://api.blockvectra.com/v1/chains` 读取 `hyperevm_mainnet` 的 `max_logs_block_range` 参数（当前为 1000 区块），不写死区块跨度数值。若单次请求跨度超过该限制，服务返回 JSON-RPC 错误 `-32602 eth_getLogs block range too large`（不计费）。
-2. **基于错误体与响应头的退避重试**：读取错误体中的 `data.retryable` 标识以及 HTTP `Retry-After` 响应头，在遇到可重试状态（`-32005 rate limit exceeded`、`-32010 node syncing`、`-32021 billing sync`、`503 gateway overloaded`）时自动退避重试；遇到不可重试状态（`401 missing_api_key`、`402 insufficient_balance`、`-32602 logs_range_too_large`）时立即终止，避免无效重试。
+2. **基于错误体与响应头的退避重试**：读取错误体中的 `data.retryable` 标识以及 HTTP `Retry-After` 响应头，在遇到可重试状态（`-32005 rate limit exceeded`、`-32010 node syncing`、`-32021 billing sync`、`503 gateway_overloaded`）时自动退避重试；遇到不可重试状态（`401 missing_api_key`、`402 insufficient_balance`、`-32602 logs_range_too_large`）时立即终止，避免无效重试。
 3. **断点续跑支持**：将回填进度（`lastBlock`、`targetAddress`、`updatedAt`）持久化到本地 `checkpoint.json` 文件中。程序中断重启时，自动从 `lastBlock + 1` 处继续回填。
 4. **Data API 转账接口支持**：支持 `--data` 命令行参数改用 Data API 地址转账接口 `GET https://api.blockvectra.com/v1/data/hyperevm_mainnet/addresses/{address}/transfers`，支持游标分页（`next_cursor`）与 `clamp=true` 截断。
 5. **本地流式存储**：回填结果以 JSONL 格式（每行一个 JSON 对象）追加写入本地文件 `backfill_events.jsonl`。
@@ -120,7 +120,7 @@ cp .env.example .env
 在未设置 `BLOCKVECTRA_API_KEY` 时运行，真实请求线上服务，验证：
 1. 成功从 `GET /v1/chains` 获取 HyperEVM 配置与限制参数（`max_logs_block_range: 1000`）。
 2. 计算出合规的切片区间 `[0 .. 999]`。
-3. 真实网关拦截并返回 `401 missing_api_key`。
+3. 真实接口拦截并返回 `401 missing_api_key`。
 
 #### JSON-RPC 模式输出
 ```text

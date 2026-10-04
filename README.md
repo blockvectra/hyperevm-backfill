@@ -14,7 +14,7 @@ This implementation complies with the official specifications:
 ## Features
 
 1. **Dynamic Block Span Discovery**: Queries `GET https://api.blockvectra.com/v1/chains` at runtime to read `max_logs_block_range` (1000 blocks for `hyperevm_mainnet`). Never hardcodes block ranges. Exceeding this limit causes JSON-RPC error `-32602 eth_getLogs block range too large` (not billed).
-2. **Error Body & Header Backoff**: Reads the error body's `data.retryable` flag and the HTTP `Retry-After` header to perform backoff on transient errors (`-32005 rate limit exceeded`, `-32010 node syncing`, `-32021 billing sync`, `503 gateway overloaded`). Immediately halts on non-retryable errors (`401 missing_api_key`, `402 insufficient_balance`, `-32602 logs_range_too_large`).
+2. **Error Body & Header Backoff**: Reads the error body's `data.retryable` flag and the HTTP `Retry-After` header to perform backoff on transient errors (`-32005 rate limit exceeded`, `-32010 node syncing`, `-32021 billing sync`, `503 gateway_overloaded`). Immediately halts on non-retryable errors (`401 missing_api_key`, `402 insufficient_balance`, `-32602 logs_range_too_large`).
 3. **Resumption Support**: Persists backfill progress to a local `checkpoint.json` file. If interrupted, subsequent runs resume from `lastBlock + 1`.
 4. **Data API Transfer Endpoint**: Supports an optional `--data` flag to backfill token transfer events via `GET https://api.blockvectra.com/v1/data/hyperevm_mainnet/addresses/{address}/transfers` with keyset cursor pagination (`next_cursor`) and `clamp=true`.
 5. **Streaming JSONL Storage**: Appends backfilled records incrementally to a local `.jsonl` file (`backfill_events.jsonl`).
@@ -120,7 +120,7 @@ cp .env.example .env
 Running without `BLOCKVECTRA_API_KEY` verifies:
 1. Dynamic retrieval of HyperEVM parameters from `GET /v1/chains` (`max_logs_block_range: 1000`).
 2. Correct chunking interval calculation `[0 .. 999]`.
-3. Upstream gateway authentication enforcement returning `401 missing_api_key`.
+3. Upstream API authentication enforcement returning `401 missing_api_key`.
 
 #### JSON-RPC Mode Output
 ```text
