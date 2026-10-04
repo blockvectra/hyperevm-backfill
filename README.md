@@ -3,11 +3,11 @@
 A minimal TypeScript example demonstrating how to backfill contract logs and token transfer events on HyperEVM (`hyperevm_mainnet`) using BlockVectra JSON-RPC and Data API endpoints.
 
 This implementation complies with the official specifications:
-- [BlockVectra JSON-RPC API Specification](https://docs.blockvectra.com/openapi/json-rpc.yaml)
-- [BlockVectra Data API Specification](https://docs.blockvectra.com/openapi/data.yaml)
-- [HyperEVM Backfill Guide](https://docs.blockvectra.com/en/guides/hyperevm-backfill/)
-- [Block Range Limits Guide](https://docs.blockvectra.com/en/guides/getlogs-block-range/)
-- [Billing Rules and Error Codes](https://docs.blockvectra.com/en/guides/billing-rules/)
+- [BlockVectra JSON-RPC API Specification](https://docs.blockvectra.com/openapi/json-rpc.yaml?ref=gh-hyperevm-backfill)
+- [BlockVectra Data API Specification](https://docs.blockvectra.com/openapi/data.yaml?ref=gh-hyperevm-backfill)
+- [HyperEVM Backfill Guide](https://docs.blockvectra.com/en/guides/hyperevm-backfill/?ref=gh-hyperevm-backfill)
+- [Block Range Limits Guide](https://docs.blockvectra.com/en/guides/getlogs-block-range/?ref=gh-hyperevm-backfill)
+- [Billing Rules and Error Codes](https://docs.blockvectra.com/en/guides/billing-rules/?ref=gh-hyperevm-backfill)
 
 ---
 
@@ -63,7 +63,7 @@ This implementation complies with the official specifications:
 
 Calls to each endpoint consume Compute Units (CU) according to their established method weights. Requests that fail before execution (such as missing API keys, rate limits, or invalid block ranges) do not consume CU.
 
-For current CU rates, billing policies, and pricing tiers, refer to the [BlockVectra Pricing Page](https://blockvectra.com/en/pricing/).
+For current CU rates, billing policies, and pricing tiers, refer to the [BlockVectra Pricing Page](https://blockvectra.com/en/pricing/?ref=gh-hyperevm-backfill).
 
 ---
 
@@ -71,8 +71,8 @@ For current CU rates, billing policies, and pricing tiers, refer to the [BlockVe
 
 API keys function across all supported networks, JSON-RPC, and Data API endpoints:
 
-1. **Web Console**: Log in and generate a key at [https://blockvectra.com/en/get-api-key/](https://blockvectra.com/en/get-api-key/).
-2. **Programmatic Onboarding**: Create keys automatically using Ethereum wallet signatures (EIP-191 / SIWE) via the Console API. See the [Programmatic Sign-up Guide](https://docs.blockvectra.com/en/guides/programmatic-signup/).
+1. **Web Console**: Log in and generate a key at [https://blockvectra.com/en/get-api-key/](https://blockvectra.com/en/get-api-key/?ref=gh-hyperevm-backfill).
+2. **Programmatic Onboarding**: Create keys automatically using Ethereum wallet signatures (EIP-191 / SIWE) via the Console API. See the [Programmatic Sign-up Guide](https://docs.blockvectra.com/en/guides/programmatic-signup/?ref=gh-hyperevm-backfill).
 
 ---
 
