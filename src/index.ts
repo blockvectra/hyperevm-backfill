@@ -1,7 +1,7 @@
 import fs from "node:fs";
 import { createPublicClient, http, toHex } from "viem";
 
-const GATEWAY_URL = "https://api.blockvectra.com/v1";
+const API_BASE_URL = "https://api.blockvectra.com/v1";
 const DATA_API_URL = "https://api.blockvectra.com/v1/data";
 const CHECKPOINT_FILE = "checkpoint.json";
 const OUTPUT_FILE = "backfill_events.jsonl";
@@ -17,7 +17,7 @@ export interface ChainCatalogEntry {
 
 export function createHyperEVMClient(apiKey?: string) {
   return createPublicClient({
-    transport: http(`${GATEWAY_URL}/hyperevm_mainnet`, {
+    transport: http(`${API_BASE_URL}/hyperevm_mainnet`, {
       fetchOptions: { headers: apiKey ? { "x-api-key": apiKey } : {} },
     }),
   });
@@ -77,7 +77,7 @@ async function main() {
   console.log(`API Key: ${apiKey ? `${apiKey.slice(0, 8)}...` : "None (testing unauthenticated response)"}`);
 
   console.log("\n[1/3] Reading chain limits dynamically from GET /v1/chains...");
-  const catalogRes = await fetch(`${GATEWAY_URL}/chains`);
+  const catalogRes = await fetch(`${API_BASE_URL}/chains`);
   if (!catalogRes.ok) throw new Error(`GET /v1/chains failed with HTTP ${catalogRes.status}`);
   const { chains } = (await catalogRes.json()) as { chains: ChainCatalogEntry[] };
   const targetChain = chains.find((c) => c.chain === "hyperevm_mainnet" || c.chain.includes("hyperevm"));
@@ -142,7 +142,7 @@ async function main() {
         cursor = res.data?.next_cursor;
       } while (cursor);
     } else {
-      const res = await requestWithRetry(`${GATEWAY_URL}/${targetChain.chain}`, {
+      const res = await requestWithRetry(`${API_BASE_URL}/${targetChain.chain}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
